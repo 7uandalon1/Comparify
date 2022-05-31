@@ -1,3 +1,44 @@
-body{
-    background-color: aquamarine;
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+header{
+    background-color: black;
+    color: #a6e1fa;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'montserrat';
+    font-size: medium;
+}
+main{
+    background-color: white;
+    color: black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.container{
+    margin-bottom: 15px;
+}
+.buttonsPlace{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1%;
+}
+.buttonPlace{
+    width: 100%;
+}
+.button{
+    width: 100%;
+    background-color: #0a2472;
+    color: #a6e1fa;
+    border: none;
+    padding: 1em
+}
+.button:hover{
+    background-color: #0a247288;
+    color: white;
 }

@@ -114,9 +114,9 @@ var info = {
       "111": "CAV RIONEGRO - MOVIL  ",
       "112": "CAV APARTADO ANTIOQUIA - MOVIL ",
       "113": "CAV MEDELLIN ARKADIA - MOVIL  ",
-      "114": "CAVIDAD CULEAR",
-      "115": "CAVIDAD ESCROTAL",
-      "116": "CAVIDAD BUCAL"
+      "114": "CAV test 1",
+      "115": "CAV test 2",
+      "116": "CAV test 3",
     },
     "IP": {
       "0": "10.108.100.18",
@@ -238,19 +238,23 @@ var info = {
       "116": "181.136.87.5"
     }
   }
-  const ipObject_array = Object.values(info.IP);   
- /* function cambiar(){
-    document.body.innerHTML = document.body.innerHTML.replace(new RegExp("AP 1", "g"), "Cali");
-    }*/
+  
 
-    var indexIp = new Array();
+  const ipObject_array = Object.values(info.IP);   
+  const nameObject_array = Object.values(info.NOMBRES);
+  
+  function cambiar(ipFind, indexIp){
+    document.body.innerHTML = document.body.innerHTML.replace(new RegExp(" "+ipFind, "g"), " " + nameObject_array[indexIp]);
+  }
+
+
 
 function encontrarIp(ip){
     for (let i = 0; i < ipObject_array.length; i++) {
         if(ipObject_array[i] == ip){
             console.group('Encontrado');
-                indexIp.push(i);
-                console.log(indexIp);
+                cambiar(ipObject_array[i], i)
+                
             console.groupEnd();
         }
     else {
@@ -258,51 +262,27 @@ function encontrarIp(ip){
     }
         
     }
-  /*    
 
-    // console.log(ipObject_array);
-   
-    ipObject_array.forEach(element => {
-
-        if(element == ip){
-        
-            var indexIp = element; 
-          
-            console.log("lo encontré en la posición " + indexIp)
-        } 
-        console.group("posición ");
-        console.log(element);
-        console.log(ip)
-        console.groupEnd();
-    }); */
 }
 
-setTimeout(() => {
-    
-    var ilClass = document.getElementsByClassName("id hs-toverflowellipsis");
-    ilClass = Object.values(ilClass);
-    
-    var ipArray = new Array();
-
-    for(let i = 0; i < ilClass.length; i++) {
-        var ipChildren = ilClass[i].firstChild.host;
-        console.log(ipChildren);
-        ipArray.push(ipChildren);
+    setTimeout(() => {
         
-    }
-    ipArray.forEach(element => {
-        encontrarIp(element)
+        var ilClass = document.getElementsByClassName("id hs-toverflowellipsis");
+        ilClass = Object.values(ilClass);
         
-    });
-        console.group("IP")
-        console.log(ipArray)
-        console.groupEnd();
+        var ipArray = new Array();
 
-        console.log(ilClass);
-    
-}, 3000);
+        for(let i = 0; i < ilClass.length; i++) {
+            var ipChildren = ilClass[i].firstChild.host;
+            console.log(ipChildren);
+            ipArray.push(ipChildren);
+            encontrarIp(ipChildren);  
+        }
+        
+        
+    }, 3000);
 
-/*ilClass = Object.values(ilClass)*/
+
 
 
 

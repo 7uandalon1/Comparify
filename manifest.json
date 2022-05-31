@@ -1,0 +1,41 @@
+{
+    "name": "Comparify",
+    "description": "Replace the ip with the site name",
+    "version": "0.1.0",
+    "manifest_version": 3,
+    "icons": {
+        "16": "/images/icon.png",
+        "32": "/images/icon.png",
+        "48": "/images/icon.png",
+        "128": "/images/icon.png"
+    },
+    "background": {
+        "service_worker": "./js/background.js"
+    },
+    "action": {
+        "default_popup": "options.html",
+        "default_icon": {
+            "16": "/images/icon.png",
+            "32": "/images/icon.png",
+            "48": "/images/icon.png",
+            "128": "/images/icon.png"
+        }
+    },
+    "options_page": "options.html",
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "tabs"
+    ],
+    "host_permissions": [
+        "https://www.google.com/*"
+    ],
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": ["myscript.js"],
+          "run_at": "document_end"
+        }
+      ]
+}

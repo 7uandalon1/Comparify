@@ -252,13 +252,13 @@ var info = {
 function encontrarIp(ip){
     for (let i = 0; i < ipObject_array.length; i++) {
         if(ipObject_array[i] == ip){
-            console.group('Encontrado');
+            
                 cambiar(ipObject_array[i], i)
                 
             console.groupEnd();
         }
     else {
-        console.log("no lo encontré en: " + ipObject_array[i]);
+        
     }
         
     }
@@ -274,7 +274,6 @@ function encontrarIp(ip){
 
         for(let i = 0; i < ilClass.length; i++) {
             var ipChildren = ilClass[i].firstChild.host;
-            console.log(ipChildren);
             ipArray.push(ipChildren);
             encontrarIp(ipChildren);  
         }
